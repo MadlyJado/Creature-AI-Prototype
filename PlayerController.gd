@@ -2,14 +2,19 @@ extends KinematicBody2D
 
 onready var rigidbody = self;
 
+# make speed a changable variable in the editor
 export (int) var speed;
+# the velocity of the player, changes depending on player input
 var Velocity = Vector2()
 
-# Called when the node enters the scene tree for the first time.
+# Ready function doesn't really do anything
 func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	# If the w or a or s or d keys are pressed, move around depending on the key
+	# in the negative x or positive x direction
+	# or the negative y or positive y direction
 	if Input.is_action_pressed("ui_up"):
 		Velocity.y = -speed;
 	elif Input.is_action_pressed("ui_down"):
